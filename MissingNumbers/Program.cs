@@ -16,6 +16,7 @@ namespace MissingNumbers
             try
             {
                 // Se captura el valor de N (Cantidad de elementos de la primera lista)
+                Console.WriteLine("Ingrese el valor de N (Tamaño de la primera lista)");
                 n = Convert.ToInt32(Console.ReadLine());
             }
             catch (Exception e)
@@ -35,6 +36,7 @@ namespace MissingNumbers
             try
             {
                 // Se captura el valor de M (Cantidad de elementos de la segunda lista)
+                Console.WriteLine("Ingrese el valor de M (Tamaño de la segunda lista)");
                 m = Convert.ToInt32(Console.ReadLine());
             }
             catch (Exception e)
@@ -61,10 +63,17 @@ namespace MissingNumbers
             // Se obtienen los números perdidos
             List<int> missingNumbers = ProcessData.GetMissingNumbers(A, B);
 
+            if (missingNumbers == null || missingNumbers.LongCount() == 0)
+            {
+                Console.WriteLine("No hay de que preocuparse =), al parecer no se ha perdido ningún número");
+                Console.ReadKey();
+            }
+
             // Se agrupan y se muestran los números perdidos accendentemente
             string result = string.Join(" ", missingNumbers
                 .Select(data => data));
 
+            Console.WriteLine("Excelente! Hemos podido encontrar los números perdidos: ");
             Console.WriteLine(result);
             Console.ReadKey();
         }

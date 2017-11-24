@@ -12,6 +12,7 @@ namespace MissingNumbers
             try
             {
                 // Se captura la lista de números, se separa los espacios y se convierte a enteros
+                Console.WriteLine("Ingrese los valores de la lista separados por un espacio");
                 String input = Console.ReadLine();
                 return Array.ConvertAll(input.Split(' '), int.Parse).ToList();
             }
